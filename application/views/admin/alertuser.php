@@ -14,12 +14,18 @@
                     <div class="col-sm-12 wow fadeIn">
                         <i class="fa fa-users"></i>
                         <h1>Data User</h1>
-                        
                     </div>
                 </div>
             </div>
         </div>
 
+        <br>
+        <div class="container">
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Data User Sudah diperbarui !!!
+            </div>
+        </div>  
         <!-- Contact Us -->
         <div class="contact-us-container">
         	<div class="container">

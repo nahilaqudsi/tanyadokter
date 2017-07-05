@@ -14,8 +14,8 @@
                 <div class="row">
                     <div class="col-sm-12 wow fadeIn">
                         <i class="fa fa-user"></i>
-                        <h1>Form Tambah Dokter/</h1>
-                        <p>Silahkan isi form untuk menambahkan data diri dokter</p>
+                        <h1>Form Edit Dokter/</h1>
+                        <p>Silahkan isi form untuk mengedit data diri dokter</p>
                     </div>
                 </div>
             </div>
@@ -26,27 +26,32 @@
 	        <div class="container">
 	        	<div class="row">
 	        		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-						<?php echo form_open_multipart('ForAdmin/CreateDokter'); ?>
+						<?php echo form_open_multipart('ForAdmin/UpdateDokter/'.$this->uri->segment(3)); ?>
 						<?php echo validation_errors(); ?>
 						<div class="form-group">
 							<label for="">Nama </label>
-							<input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Beserta Gelar">
+							<input type="text" name="nama" class="form-control" id="nama" value="<?php echo $dokter[0]->nama ?>">
 						</div>
 						<div class="col-xs- col-sm- col-md- col-lg-">
 							<label for="">Spesialis </label>
-							<input type="text" name="spesialis" class="form-control" id="spesialis" placeholder="Masukkan Spesialis Dokter">
+							<input type="text" name="spesialis" class="form-control" id="spesialis" value="<?php echo $dokter[0]->spesialis ?>">
 						</div>
 						<div class="col-xs- col-sm- col-md- col-lg-">
 							<label for="">Alamat </label>
-							<input type="text" name="alamat" class="form-control" id="alamat" placeholder="Masukkan Alamat Lengkap">
+							<input type="text" name="alamat" class="form-control" id="alamat" value="<?php echo $dokter[0]->alamat ?>"">
 						</div>
 						<div class="col-xs- col-sm- col-md- col-lg-">
 							<label for="">Telepon </label>
-							<input type="text" name="hp" class="form-control" id="hp" placeholder="Masukkan Nomor Telepon">
+							<input type="text" name="hp" class="form-control" id="hp" value="<?php echo $dokter[0]->hp ?>">
 						</div>
 						<div class="col-xs- col-sm- col-md- col-lg-">
 							<label for="">Foto </label>
-							<input type="file" name="userfile" class="form-control" id="userfile">							
+						</div>
+						<div class="col-xs- col-sm- col-md- col-lg-">
+							<img src=<?=base_url("assets/upload")."/".$dokter[0]->foto?> width="200">
+						</div>
+						<div class="col-xs- col-sm- col-md- col-lg-">
+							<input type="file" name="userfile" id="userfile">
 						</div>
 						<div>
 							<center>

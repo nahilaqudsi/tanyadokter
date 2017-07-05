@@ -2,6 +2,7 @@
 <html lang="en">
 
     <?php $this->load->view('admin/Header'); ?>
+
     <body>
         
         <!-- Top menu -->
@@ -12,14 +13,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 wow fadeIn">
-                        <i class="fa fa-users"></i>
-                        <h1>Data User</h1>
+                        <i class="fa fa-user"></i>
+                        <h1>Data Dokter</h1>
                         
                     </div>
                 </div>
             </div>
         </div>
-
+        
+        <br>
+        <div class="container">
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Data Dokter Sudah diperbarui !!!
+            </div>
+        </div>  
         <!-- Contact Us -->
         <div class="contact-us-container">
         	<div class="container">
@@ -29,12 +37,9 @@
 							<thead>
 								<tr>
 									<th>Nama</th>
-									<th>Tanggal</th>
-									<th>Jenis Kelamin</th>
-									<th>Email</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Hak Akses</th>
+									<th>Spesialis</th>
+									<th>Alamat</th>
+									<th>No Telepon</th>
 									<th>Foto</th>
 									<th>Edit</th>
 									<th>Delete</th>
@@ -45,14 +50,12 @@
 							</tbody>
 						</table>
 	                </div>
-	                <div class="col-sm-5 contact-address wow fadeInUp">
-	                   
-	                </div>
 	            </div>
 	        </div>
         </div>
 
         <!-- Footer -->
+        
      	<?php $this->load->view('admin/Footer'); ?>   
         <script src="<?=base_url()?>assets/DataTables/datatables.min.js"></script>
         <script type="text/javascript">
@@ -62,7 +65,7 @@
                 "serverSide":true,
                 "lengthMenu":[[1,3,6,-1],[1,3,6,"All"]],
                 "ajax":{
-                    url : "<?php echo site_url('ForAdmin/data_server_user')?>",
+                    url : "<?php echo site_url('ForAdmin/data_server')?>",
                     type : "POST"
                 },
                 "columnDefs":
@@ -73,30 +76,18 @@
                     },
                     {
                         "targets":1,
-                        "data":"tgl",
+                        "data":"spesialis",
                     },
                     {
                         "targets":2,
-                        "data":"jk",
+                        "data":"alamat",
                     },
                     {
                         "targets":3,
-                        "data":"email",
+                        "data":"hp",
                     },
                     {
                         "targets":4,
-                        "data":"username",
-                    },
-                    {
-                        "targets":5,
-                        "data":"password",
-                    },
-                    {
-                        "targets":6,
-                        "data":"hakakses",
-                    },
-                    {
-                        "targets":7,
                         "data":"foto",
                         "render":function(data,type,full,meta){
                             return '<img src="<?=base_url()?>assets/upload/'+data+'">';
@@ -104,25 +95,26 @@
                         }
                     },
                     {
-                        "targets":8,
+                        "targets":5,
                         "data":null,
                         "searchable":false,
                         "render":function(data,type,full,meta){
-                            return '<a href="<?=site_url()?>/ForAdmin/UpdateUser/'+data["iduser"]+'">Edit</a>';
+                            return '<a href="<?=site_url()?>/ForAdmin/UpdateDokter/'+data["iddokter"]+'" type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit" aria-hidden="true"> Edit </span></a>';
                         }
                     },
                     {
-                        "targets":9,
+                        "targets":6,
                         "data":null,
                         "searchable":false,
                         "render":function(data,type,full,meta){
-                            return '<a href="<?=site_url()?>/ForAdmin/DeleteUser/'+data["iduser"]+'">Delete</a>';
+                            return '<a href="<?=site_url()?>/ForAdmin/DeleteDokter/'+data["iddokter"]+'" type="button" class="btn btn-info"><span class="glyphicon glyphicon-trash" aria-hidden="true"> Delete </span></a>';
                         }
                     },
                     ]
         });
     });
         </script>
+
     </body>
 
 </html>
